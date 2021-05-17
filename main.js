@@ -8,16 +8,20 @@ const convertFahrToCelsius = (F) => {
     let C = 0;
     C = (F - 32) * 5/9;
 
-    if (typeof(F) != Number) {
-        console.log(F + " is not a valid number");
+    const dataType = typeof(F);
+    // console.log(dataType);
+
+    if (dataType !== 'number') {
+        const errorMessage = 
+        console.log(`${F} is not a valid number but a/an ${dataType}`);
     }
     else {
-        console.log(C.toFixed(4) + " deg Celsius");
+        console.log(`${C.toFixed(4)} deg Celsius`);
     }
 
 
     
-    return C.toFixed(4);
+    return C;
 
 }
 
@@ -26,7 +30,7 @@ const convertFahrToCelsius = (F) => {
 convertFahrToCelsius([1,2,3,4]);
 convertFahrToCelsius(0);
 convertFahrToCelsius(2);
-
+convertFahrToCelsius({temp:24});
 
 
 
@@ -36,41 +40,60 @@ convertFahrToCelsius(2);
 
 // --------2----------
 
-// declare an empty array
-    let nArray = [];
+
 // function declaration
 const checkYuGiOh = (n) => {
-    
 
-    for (let i = 1; i <= n; i++) {
-        
-            if ((i % 2 === 0) && (i % 3 === 0) && (i % 5 === 0)) {
-                i ="Yu-Gi-Oh";
-            }
-            else if ((i % 2 === 0) && (i % 3 === 0)) {
-                i ="Yu-Gi";
-            }
-            else if ((i % 2) === 0){
-                i = "Yu";
-            }
-            else if ((i % 3) === 0){
-                i = "Gi";
-            }
-            else if ((i % 5) === 0){
-                i = "Oh";
-            }
-            else {
-                
-            }
-            
-            nArray.push(i);
-    console.log(nArray);
-
+    const dataType = typeof(n);
+    if(dataType != "number") {
+        console.log(`invalid parameter: ${n}`);
     }
-    
-    
-    return nArray[n];
-    
+    else{
+
+        // declare an empty array
+        let nArray = [];
+        
+        // iteration
+        for (let i = 1; i <= n; i++) {
+
+            let numHolder = "";
+            
+                if ((i % 2 === 0) && (i % 3 === 0) && (i % 5 === 0)) {
+                    numHolder += "Yu-Gi-Oh";
+                }
+                else if ((i % 2 === 0) && (i % 3 === 0)) {
+                    numHolder += "Yu-Gi";
+                }
+                else if ((i % 2 === 0) && (i % 5 === 0)) {
+                    numHolder += "Yu-Oh";
+                }else if ((i % 3 === 0) && (i % 5 === 0)) {
+                    numHolder += "Gi-Oh";
+                }
+                else if ((i % 2) === 0){
+                    numHolder += "Yu";
+                }
+                else if ((i % 3) === 0){
+                    numHolder += "Gi";
+                }
+                else if ((i % 5) === 0){
+                    numHolder += "Oh";
+                }
+                else{
+                    
+                }
+                if (numHolder){
+                    nArray.push(numHolder)
+                }
+                else {
+                    nArray.push(i);
+                }
+                
+
+        }
+        console.log(nArray);
+        
+        return nArray;
+    }
 
 }
 
@@ -78,3 +101,7 @@ const checkYuGiOh = (n) => {
 
 // function calls
 checkYuGiOh(20);
+checkYuGiOh("hes");
+checkYuGiOh([1,2,3,4,5,6]);
+checkYuGiOh(50);
+checkYuGiOh("50");
