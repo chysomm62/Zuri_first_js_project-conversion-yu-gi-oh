@@ -7,18 +7,23 @@
 // function declaration
 const convertFahrToCelsius = (F) => {
     
+    // conversion
     let C = 0;
         C = (F - 32) * 5/9;
 
+    // get data types of F
     const dataType = typeof F;
-    // console.log(dataType);
 
     // dataType === 'boolean' || dataType === 'object' || dataType === 'undefined' || dataType === 'function' || Array.isArray(n) || dataType === 'string'
 
+    // checks if F is a valid number or a string that can be converted to a valid number
+
+    // if not
     if (isNaN(F)) {
         var F_content = JSON.stringify(F);
         console.log(`${F_content} is not a valid number but a/an ${dataType}`);
     }
+    // if it is a valid number
     else {
         C = C.toFixed(4);
         console.log(`${C} deg C`);
@@ -36,7 +41,6 @@ convertFahrToCelsius({temp:24});
 convertFahrToCelsius(500);
 convertFahrToCelsius("50");
 convertFahrToCelsius("big");
-convertFahrToCelsius(3e4000);
 
 
 
