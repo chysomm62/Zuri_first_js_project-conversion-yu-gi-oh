@@ -5,17 +5,18 @@
 // ---------1-------------
 // function declaration
 const convertFahrToCelsius = (F) => {
-    let C = 0;
-    C = (F - 32) * 5/9;
-
+    
     const dataType = typeof(F);
     // console.log(dataType);
 
-    if (dataType !== 'number') {
-        const errorMessage = 
+     let C = 0;
+        C = (F - 32) * 5/9;
+
+    if (dataType != 'number') {
         console.log(`${F} is not a valid number but a/an ${dataType}`);
     }
     else {
+
         console.log(`${C.toFixed(4)} deg Celsius`);
     }
 
@@ -31,6 +32,8 @@ convertFahrToCelsius([1,2,3,4]);
 convertFahrToCelsius(0);
 convertFahrToCelsius(2);
 convertFahrToCelsius({temp:24});
+convertFahrToCelsius(500);
+convertFahrToCelsius("50");
 
 
 
@@ -44,8 +47,9 @@ convertFahrToCelsius({temp:24});
 // function declaration
 const checkYuGiOh = (n) => {
 
-    const dataType = typeof(n);
-    if(dataType != "number") {
+    const dataType = isNaN(n);
+
+    if(dataType) {
         console.log(`invalid parameter: ${n}`);
     }
     else{
@@ -81,14 +85,13 @@ const checkYuGiOh = (n) => {
                 else{
                     
                 }
-                if (numHolder){
-                    nArray.push(numHolder)
-                }
-                else {
-                    nArray.push(i);
-                }
+                    if (numHolder){
+                        nArray.push(numHolder)
+                    }
+                    else {
+                        nArray.push(i);
+                    }
                 
-
         }
         console.log(nArray);
         
@@ -105,3 +108,4 @@ checkYuGiOh("hes");
 checkYuGiOh([1,2,3,4,5,6]);
 checkYuGiOh(50);
 checkYuGiOh("50");
+checkYuGiOh("fizzbuzz is meh")
