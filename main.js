@@ -1,5 +1,6 @@
 // first function
 // will convert a given number to celcius from fahrenheit
+// the function will take a single parameter [fahrenheit digit] and converts it to celsius
 
 
 // ---------1-------------
@@ -19,15 +20,11 @@ const convertFahrToCelsius = (F) => {
         console.log(`${F_content} is not a valid number but a/an ${dataType}`);
     }
     else {
-
         C = C.toFixed(4);
         console.log(`${C} deg C`);
     }
-
-
     
     return C;
-
 }
 
 
@@ -39,8 +36,7 @@ convertFahrToCelsius({temp:24});
 convertFahrToCelsius(500);
 convertFahrToCelsius("50");
 convertFahrToCelsius("big");
-
-
+convertFahrToCelsius(3e4000);
 
 
 
@@ -52,13 +48,14 @@ convertFahrToCelsius("big");
 // function declaration
 const checkYuGiOh = (n) => {
 
-    
-
+    // checks is parameter is a number or can be converted to a number
+    // if not
     if(isNaN(n)) {
         let n_content = JSON.stringify(n);
 
         console.log(`invalid parameter: ${n_content}`);
     }
+    // if its a number or a string that can be converted to a number
     else{
 
         // declare an empty array
@@ -67,37 +64,66 @@ const checkYuGiOh = (n) => {
         // iteration
         for (let i = 1; i <= n; i++) {
 
-            let numHolder = "";
+            // push numbers from 1 to n into the array
+            nArray.push(i);
             
+                // replacing numbers in the array with strings depending on their multiples
+                
+                // 1. multiples of 2, 3 and 5
                 if ((i % 2 === 0) && (i % 3 === 0) && (i % 5 === 0)) {
-                    numHolder += "Yu-Gi-Oh";
+                    let index = nArray.indexOf(i);
+                        if(index !== -1){
+                            nArray[index] ="Yu-Gi-Oh";
+                        }
                 }
+                // 2. multiples of 2 and 3
                 else if ((i % 2 === 0) && (i % 3 === 0)) {
-                    numHolder += "Yu-Gi";
+                    let index = nArray.indexOf(i);
+                        if(index !== -1){
+                            nArray[index] ="Yu-Gi";
+                        }
                 }
+                // 3. multiples of 2 and 5
                 else if ((i % 2 === 0) && (i % 5 === 0)) {
-                    numHolder += "Yu-Oh";
-                }else if ((i % 3 === 0) && (i % 5 === 0)) {
-                    numHolder += "Gi-Oh";
+                    let index = nArray.indexOf(i);
+                        if(index !== -1){
+                            nArray[index] = "Yu-Oh";
+                        }
                 }
+                // 4. multiples of 3 and 5
+                else if ((i % 3 === 0) && (i % 5 === 0)) {
+                    let index = nArray.indexOf(i);
+                        if(index !== -1){
+                            nArray[index] ="Gi-Oh";
+                        }
+                }
+                // 5. multiples of 2 only
                 else if ((i % 2) === 0){
-                    numHolder += "Yu";
+                    let index = nArray.indexOf(i);
+                        if(index !== -1){
+                            nArray[index] ="Yu";
+                        }
                 }
+                // 6. multiples of 3 only
                 else if ((i % 3) === 0){
-                    numHolder += "Gi";
+                    let index = nArray.indexOf(i);
+                        if(index !== -1){
+                            nArray[index] ="Gi";
+                        }
                 }
+                // 7. multiples of 5 only
                 else if ((i % 5) === 0){
-                    numHolder += "Oh";
+                    let index = nArray.indexOf(i);
+                        if(index !== -1){
+                            nArray[index] ="Oh";
+                        }
                 }
                 else{
-                    
+                    // let index = nArray.indexOf(i);
+                    //     if(index !== -1){
+                    //         nArray[index] = i;
+                    //     }
                 }
-                    if (numHolder){
-                        nArray.push(numHolder)
-                    }
-                    else {
-                        nArray.push(i);
-                    }
                 
         }
         console.log(nArray);
@@ -115,4 +141,4 @@ checkYuGiOh("hes");
 checkYuGiOh([1,2,3,4,5,6]);
 checkYuGiOh(50);
 checkYuGiOh("50");
-checkYuGiOh("fizzbuzz is meh")
+checkYuGiOh("fizzbuzz is meh");
