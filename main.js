@@ -6,18 +6,22 @@
 // function declaration
 const convertFahrToCelsius = (F) => {
     
-    const dataType = typeof(F);
-    // console.log(dataType);
-
-     let C = 0;
+    let C = 0;
         C = (F - 32) * 5/9;
 
-    if (dataType != 'number') {
-        console.log(`${F} is not a valid number but a/an ${dataType}`);
+    const dataType = typeof F;
+    // console.log(dataType);
+
+    // dataType === 'boolean' || dataType === 'object' || dataType === 'undefined' || dataType === 'function' || Array.isArray(n) || dataType === 'string'
+
+    if (isNaN(F)) {
+        var F_content = JSON.stringify(F);
+        console.log(`${F_content} is not a valid number but a/an ${dataType}`);
     }
     else {
 
-        console.log(`${C.toFixed(4)} deg Celsius`);
+        C = C.toFixed(4);
+        console.log(`${C} deg C`);
     }
 
 
@@ -34,6 +38,7 @@ convertFahrToCelsius(2);
 convertFahrToCelsius({temp:24});
 convertFahrToCelsius(500);
 convertFahrToCelsius("50");
+convertFahrToCelsius("big");
 
 
 
@@ -47,10 +52,12 @@ convertFahrToCelsius("50");
 // function declaration
 const checkYuGiOh = (n) => {
 
-    const dataType = isNaN(n);
+    
 
-    if(dataType) {
-        console.log(`invalid parameter: ${n}`);
+    if(isNaN(n)) {
+        let n_content = JSON.stringify(n);
+
+        console.log(`invalid parameter: ${n_content}`);
     }
     else{
 
