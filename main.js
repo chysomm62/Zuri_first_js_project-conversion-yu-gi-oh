@@ -21,7 +21,7 @@ const convertFahrToCelsius = (F) => {
     // if not
     if (isNaN(F)) {
         var F_content = JSON.stringify(F);
-        
+
         if(Array.isArray(F)){
             console.log(`${F_content} is not a valid number but an Array`);
         }
@@ -154,3 +154,4 @@ checkYuGiOh([1,2,3,4,5,6]);
 checkYuGiOh(50);
 checkYuGiOh("50");
 checkYuGiOh("fizzbuzz is meh");
+checkYuGiOh("02")
