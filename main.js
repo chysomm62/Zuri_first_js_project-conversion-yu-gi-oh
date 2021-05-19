@@ -14,13 +14,12 @@ const convertFahrToCelsius = (F) => {
     // get data types of F
     const dataType = typeof F;
 
-    // dataType === 'boolean' || dataType === 'object' || dataType === 'undefined' || dataType === 'function' || Array.isArray(n) || dataType === 'string'
 
     // checks if F is a valid number or a string that can be converted to a valid number
 
     // if not
     if (isNaN(F)) {
-        var F_content = JSON.stringify(F);
+        const F_content = JSON.stringify(F);
 
         if(Array.isArray(F)){
             console.log(`${F_content} is not a valid number but an Array`);
@@ -63,7 +62,7 @@ const checkYuGiOh = (n) => {
     // if not
     if(isNaN(n)) {
         
-        let n_content = JSON.stringify(n);
+        const n_content = JSON.stringify(n);
 
         console.log(`invalid parameter: ${n_content}`);
     }
@@ -138,6 +137,7 @@ const checkYuGiOh = (n) => {
                 }
                 
         }
+
         console.log(nArray);
         
         return nArray;
@@ -155,3 +155,17 @@ checkYuGiOh(50);
 checkYuGiOh("50");
 checkYuGiOh("fizzbuzz is meh");
 checkYuGiOh("02")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
