@@ -21,7 +21,14 @@ const convertFahrToCelsius = (F) => {
     // if not
     if (isNaN(F)) {
         var F_content = JSON.stringify(F);
-        console.log(`${F_content} is not a valid number but a/an ${dataType}`);
+        
+        if(Array.isArray(F)){
+            console.log(`${F_content} is not a valid number but an Array`);
+        }
+        else{
+            console.log(`${F_content} is not a valid number but a/an ${dataType}`);
+        }
+        
     }
     // if it is a valid number
     else {
@@ -55,6 +62,7 @@ const checkYuGiOh = (n) => {
     // checks is parameter is a number or can be converted to a number
     // if not
     if(isNaN(n)) {
+        
         let n_content = JSON.stringify(n);
 
         console.log(`invalid parameter: ${n_content}`);
